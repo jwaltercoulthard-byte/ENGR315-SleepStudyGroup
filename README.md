@@ -84,11 +84,20 @@ A single summary score is the most practical output for an end user. It is infer
 ## Implementation Details
 
 ### Question 1: Heart Rate Monitoring
-**Methods/Metrics:** This data is presented in a csv file which would need to be read and put into an array of values which can be iterated over to find a time heart rate pairing which can be put into a plot to show how the heart rate changes and to visualize such data.  This would be a more human centered approach comparing the heart rates of two sleepers one good and one bad and visually comparing such data.  On a metrical view the average heart rate can be calculated for the nights sleep and using python the heart rates can be iterated through to find areas with spikes or times when the heart rate is above a normal threshold how long you were in that threshold and how high your heart rate went.  These can be compared numerically against each other in sleepers.  
+**Script:** [`Q1Heartrate.py`](Q1Heartrate.py) loads the Actigraph heart-rate data and sleep intervals for a selected participant. Run it from the repository root with:
 
-**Resources:** Ideally, no extra python packages will be needed beyond what has been used so far.  
+```bash
+python Q1Heartrate.py
+```
 
-**Plots:** The plots created would be a normal XY graph showing a heart rate over a time period.
+The script currently analyzes participant 1. It smooths the heart-rate readings with a moving average and identifies peaks using a 105 BPM threshold, then prints the detected reading indices to the command line. It also plots heart rate over time and marks detected peaks. The plot labels show time and heart rate in BPM.
+
+**Metrics and interpretation:** The intended Q1 analysis is to report the mean heart rate during each sleep period and the number of detected heart-rate peaks, then compare these measurements across sleep periods or participants. At present, the script prints peak indices but does not calculate the mean heart rate or print a peak count. It also creates sleep-period slices but currently detects peaks and plots the full loaded recording; those results should be restricted to the sleep-period data before treating them as overnight measurements.
+
+**Sub-task 6 evidence:** 
+![Heart rate over time with detected peaks](images/rMQ1HeartRateExample.png)
+
+**Dependencies:** The script uses pandas, NumPy, SciPy, and Matplotlib.
 
 
 ### Question 2: Sleep Restlessness
