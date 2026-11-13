@@ -42,7 +42,7 @@ def Parsed_data(data,sleep_times):
         inbedtime, outbedtime = sleep_times.loc[row]
         temp_data = data[data["time"].between(inbedtime,outbedtime)]
         new_data = pd.concat([new_data,temp_data],ignore_index=True)
-    print(new_data)
+    print(f"Selected {len(new_data)} accelerometer readings.")
     
     return new_data
 
@@ -76,14 +76,19 @@ def plot_accelerometer_data(data,magnitude):
     Parameters:
     magnitude (np.ndarray): The accelerometer magnitude data array.
     """
-    if magnitude is None:
+    if data is None or magnitude is None or data.empty:
         return
     
+    day = pd.to_numeric(data["day"])
+    seconds_since_midnight = pd.to_timedelta(data["time"]).dt.total_seconds()
+    elapsed_hours = (day - day.iloc[0]) * 24 + seconds_since_midnight / 3600
+    elapsed_hours = elapsed_hours - elapsed_hours.iloc[0]
+
     plt.figure(figsize=(12, 6))
-    plt.xlabel("Time")
+    plt.xlabel("Elapsed time (hours)")
     plt.ylabel("Magnitude")
     plt.title("Accelerometer Magnitude over time")
-    plt.plot(data['time'], magnitude, label='Magnitude', color='blue')
+    plt.plot(elapsed_hours, magnitude, label='Magnitude', color='blue')
     plt.show()
 
 
