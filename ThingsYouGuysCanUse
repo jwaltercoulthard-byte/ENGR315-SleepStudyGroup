@@ -1,0 +1,10 @@
+
+
+
+So Q1Heartrate.py has a couple of things in it that I think will be useful for you guys
+
+first there's a csv reader function. Right now it works for heart rate but you can change the columb
+to get you whatever data you want. It also gives you the timestamps from the "sleep" file that the patient actually slept in. Some units had multiple sleep times but its able to handle this
+Feel free to either include that file to use the method or copy paste code if you don't wanna screw with that or you need to edit it
+
+Also, slicedata will slice out the specific sleep intervals
