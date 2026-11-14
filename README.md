@@ -94,9 +94,6 @@ The script currently analyzes participant 1. It smooths the heart-rate readings 
 
 **Metrics and interpretation:** The intended Q1 analysis is to report the mean heart rate during each sleep period and the number of detected heart-rate peaks, then compare these measurements across sleep periods or participants. At present, the script prints peak indices but does not calculate the mean heart rate or print a peak count. It also creates sleep-period slices but currently detects peaks and plots the full loaded recording; those results should be restricted to the sleep-period data before treating them as overnight measurements.
 
-**Sub-task 6 evidence:** 
-![Heart rate over time with detected peaks](images/rMQ1HeartRateExample.png)
-
 **Dependencies:** The script uses pandas, NumPy, SciPy, and Matplotlib.
 
 
@@ -105,7 +102,7 @@ The script currently analyzes participant 1. It smooths the heart-rate readings 
 
 **Resources:** Ideally, No extra packages would be needed beyond what has already been used.
 
-**Plots** The plots above would be enough to visualize the data and make significant inferences from it.
+**Plots** The plots would be enough to visualize the data and make significant inferences from it.
 
 
 ### Question 3: Hormone level changes
@@ -128,7 +125,11 @@ The script currently analyzes participant 1. It smooths the heart-rate readings 
 
 *(Answers to the questions; sub-task 6)*
 
-_TODO_
+**Q1 resuts:** 
+![Heart rate over time with detected peaks](images/rMQ1HeartRateExample.png)
+
+**Q2 resuts:** 
+
 
 ## Conclusions
 
